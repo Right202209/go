@@ -1,16 +1,10 @@
-package main
+package handler
 
 import (
-	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
-type Response struct {
-	Message string `json:"message"`
-}
-
 func Handler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	response := Response{Message: "Hello, Go on Vercel!"}
-	json.NewEncoder(w).Encode(response)
+	fmt.Fprintf(w, "<h1>Hello from Go!</h1>")
 }
